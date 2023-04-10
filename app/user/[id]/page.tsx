@@ -8,10 +8,21 @@ type User = {
   email: string;
 };
 
+// const getUser = async (id: string) => {
+//   // const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+//   await new Promise((resolve) => setTimeout(resolve, 5000));
+//   const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+//   const user: User = await response.json();
+
+//   return user;
+// };
+
 const getUser = async (id: string) => {
-  // const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-  const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+  const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+    next: {
+      revalidate: 60,
+    },
+  });
   const user: User = await response.json();
 
   return user;
@@ -28,6 +39,7 @@ const AUser = async ({ params: { id } }: Props) => {
       <div>
         <div>名前: {user.name}</div>
         <div>メールアドレス: {user.email}</div>
+        <div>{Math.random()}</div>
       </div>
     </div>
   );

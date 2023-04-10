@@ -1,3 +1,12 @@
+[Next.js 13のappディレクトリの基礎(Layout, Suspense, Data Fetching...)](https://reffect.co.jp/react/next-js-13-app)
+を
+```bash
+pnpm create next-app@latest appdir --ts --use-pnpm
+```
+でやってみたもの。あちこち修正は必要だったけど、なかなかいい感じ。
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
