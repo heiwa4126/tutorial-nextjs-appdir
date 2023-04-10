@@ -17,6 +17,9 @@ const header = () => {
           <li>
             <Link href="/test">Test</Link>
           </li>
+          <li>
+            <Link href="/user">User</Link>
+          </li>
         </ul>
       </nav>
     </header>
