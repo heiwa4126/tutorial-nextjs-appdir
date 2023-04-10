@@ -1,30 +1,15 @@
-// import UsersList from "../UsersList";
-
-type User = {
-  id: number;
-  name: string;
-  email: string;
-};
-
-const getUsers = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users: User[] = await response.json();
-  console.log(users);
-  return users;
-};
-
-
-
-
+import UsersList from "./UsersList";
+import Counter from "./Countret";
 
 const Test = async () => {
-  const users = await getUsers();
-
   return (
     <>
       <h1 className="text-xl font-bold">Testページ</h1>
-      <h2 className="text-lg font-bold mt-4">ユーザ一覧</h2>
-      <ul>{users && users.map((user) => <li key={user.id}>{user.name}</li>)}</ul>
+      <Counter />
+      {/* Counterもサーバー側で静的に生成される。クライアント側でハイドレーションされcsrとなる */}
+      {/* @ts-expect-error Async Server Component */}
+      <UsersList />
+      {/* UsersListはbuild時に静的に生成されてしまう。devの時はリロードすると更新される */}
     </>
   );
 };
