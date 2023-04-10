@@ -21,7 +21,9 @@ const Users = async () => {
         {users &&
           users.map((user) => (
             <li key={user.id}>
-              <Link href={`/user/${user.id}`}>{user.name}</Link>
+              <Link href={`/user/${user.id}`} prefetch={false}>
+                {user.name}
+              </Link>
             </li>
           ))}
       </ul>
