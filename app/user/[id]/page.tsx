@@ -33,4 +33,13 @@ const AUser = async ({ params: { id } }: Props) => {
   );
 };
 
+export async function generateStaticParams() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users: User[] = await response.json();
+
+  return users.map((user) => ({
+    id: user.id.toString(),
+  }));
+}
+
 export default AUser;
